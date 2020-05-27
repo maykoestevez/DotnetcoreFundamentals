@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:8350",
-      "sslPort": 44334
+      "applicationUrl": "http://localhost:62093",
+      "sslPort": 44394
     }
   },
   "profiles": {
@@ -15,7 +15,15 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MiddlewareLab": {
+    "ServicesLab": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
+    "fundamentalsLab": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
