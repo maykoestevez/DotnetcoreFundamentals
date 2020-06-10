@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 //using ConfigurationLab.Models;
 
 namespace ConfigurationLab.Controllers
@@ -16,9 +17,9 @@ namespace ConfigurationLab.Controllers
         private readonly IConfiguration _configuration;
         private readonly Person _person;
 
-        public ConfigurationController(Person person, IConfiguration configurationRoot, IConfiguration configuration)
+        public ConfigurationController(IOptions<Person> options, IConfiguration configurationRoot, IConfiguration configuration)
         {
-            _person = person;
+            _person = options.Value;
             _configurationRoot = (IConfigurationRoot)configurationRoot;
             _configuration = configuration;
         }
