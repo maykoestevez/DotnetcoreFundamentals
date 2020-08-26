@@ -19,7 +19,7 @@ namespace ConfigurationLab.Controllers
 
         public ConfigurationController(IOptions<Person> options, IConfiguration configurationRoot, IConfiguration configuration)
         {
-            _person = options.Value;
+            _person = options.Value; // using option pattern
             _configurationRoot = (IConfigurationRoot)configurationRoot;
             _configuration = configuration;
         }
@@ -81,6 +81,13 @@ namespace ConfigurationLab.Controllers
             //Check it is not working
             //Unable to resolve service for type 'ConfigurationLab.Controllers.Person' while attempting to activate 'ConfigurationLab.Controllers.ConfigurationController'.
             return _person;
+        }
+          // Getting configuration from app secret
+        [HttpGet("GetSecretConfig")]
+        public ActionResult<string> GetSecretConfig()
+        {
+           
+            return _configuration["Person:Name"];;
         }
 
     }
